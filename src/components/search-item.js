@@ -16,7 +16,7 @@ const SearchItem = ({ item, setNominee, nominatedMovies }) => {
         onClick={() => {
           setNominee((movies) => {
             if (movies.length === 5) return movies;
-            ls.set("nominatedMovies", nominatedMovies);
+            ls.set("nominatedMovies", [item, ...movies]);
             return [item, ...movies];
           });
         }}
