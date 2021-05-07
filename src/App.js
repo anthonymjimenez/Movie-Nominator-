@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Search from "./components/search";
+import NominatedList from "./container/nominated-list";
 import SearchList from "./container/search-list";
 function App() {
   let [search, setSearch] = useState([]);
@@ -9,8 +10,18 @@ function App() {
     <div className="App">
       {console.log(search, "search")}
       <Search setSearch={setSearch} />
-      <SearchList results={search.Search} setNominee={setNominee} />
+      <br />
 
+      <SearchList
+        results={search.Search}
+        setNominee={setNominee}
+        nominatedMovies={nominatedMovies}
+      />
+      <br />
+      <NominatedList
+        nominatedMovies={nominatedMovies}
+        removeNominee={setNominee}
+      />
       {console.log("ping", nominatedMovies)}
     </div>
   );

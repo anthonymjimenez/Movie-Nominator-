@@ -1,7 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const SearchItem = ({ item, setNominee }) => {
+const SearchItem = ({ item, setNominee, nominatedMovies }) => {
   let [disabled, setDisabled] = useState(false);
+
+  useEffect(() => {
+    let ids = nominatedMovies.map(({ imdbID }) => imdbID);
+    if (!ids.includes(item.imdbID)) {
+      setDisabled(false);
+    }
+  }, [nominatedMovies]);
+
   return (
     <div>
       {item.Title}
@@ -9,7 +17,7 @@ const SearchItem = ({ item, setNominee }) => {
         disabled={disabled}
         onClick={() => {
           setNominee((movies) => [item, ...movies]);
-          setDisabled(!disabled);
+          setDisabled(true);
         }}
       >
         Nominate
