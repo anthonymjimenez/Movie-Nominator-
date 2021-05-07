@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
 import ls from "local-storage";
 
-const NominatedItem = ({ item, removeNominee, nominatedMovies }) => {
+const NominatedItem = ({ item, removeNominee }) => {
   return (
     <div>
       {item.Title}
