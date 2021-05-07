@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import ls from "local-storage";
 
 const NominatedItem = ({ item, removeNominee, nominatedMovies }) => {
   return (
@@ -6,9 +7,13 @@ const NominatedItem = ({ item, removeNominee, nominatedMovies }) => {
       {item.Title}
       <button
         onClick={() => {
-          removeNominee((movies) =>
-            movies.filter(({ imdbID }) => imdbID !== item.imdbID)
-          );
+          removeNominee((movies) => {
+            let moviesFiltered = movies.filter(
+              ({ imdbID }) => imdbID !== item.imdbID
+            );
+            ls.set("nominatedMovies", moviesFiltered);
+            return moviesFiltered;
+          });
         }}
       >
         Remove

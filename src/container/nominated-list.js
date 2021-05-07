@@ -1,4 +1,5 @@
 import NominatedItem from "../components/nominated-item";
+import ls from "local-storage";
 
 const NominatedList = ({ nominatedMovies, removeNominee }) => {
   return (
