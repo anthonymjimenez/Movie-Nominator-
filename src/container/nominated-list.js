@@ -4,24 +4,35 @@ import { useEffect, useState } from "react";
 
 const NominatedList = ({ nominatedMovies, removeNominee }) => {
   let [categoryName, setCategory] = useState("");
-  let [categoryVisible, setCategoryVisible] = useState("");
-  const visibleCategory = (e) => {
-    e.preventDefault();
-    setCategoryVisible(true);
-  };
+
+  useEffect(() => {
+    if (ls.get("categoryName") && nominatedMovies.length === 5) {
+      setCategory(ls.get("categoryName"));
+    }
+  }, [nominatedMovies.length]);
+
   return (
     <>
-      {nominatedMovies.length === 5 && categoryVisible && <> {categoryName} </>}
-
-      {nominatedMovies.map((search) => (
-        <NominatedItem item={search} removeNominee={removeNominee} />
-      ))}
+      <h3>
+        {" "}
+        {nominatedMovies.length === 5 ? (
+          <> {categoryName} </>
+        ) : (
+          <> Nomination </>
+        )}{" "}
+      </h3>
+      <ul className="nominated-movie-list">
+        {nominatedMovies.map((search) => (
+          <NominatedItem item={search} removeNominee={removeNominee} />
+        ))}
+      </ul>
       {nominatedMovies.length === 5 && (
-        <div style={{ color: "green" }}>
+        <div className="nominated-form">
           {" "}
-          You are done! Please name your nomination category.{" "}
-          <form onSubmit={(e) => visibleCategory(e)}>
+          <form>
+            <label> You are done! Please name your nomination category. </label>
             <input
+              id="nominated-input"
               type="text"
               onChange={(e) =>
                 setCategory(() => {
@@ -30,7 +41,6 @@ const NominatedList = ({ nominatedMovies, removeNominee }) => {
                 })
               }
             />{" "}
-            <button>Submit</button>
           </form>
         </div>
       )}

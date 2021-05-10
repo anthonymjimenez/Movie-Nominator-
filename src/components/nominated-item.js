@@ -2,8 +2,8 @@ import ls from "local-storage";
 
 const NominatedItem = ({ item, removeNominee }) => {
   return (
-    <div>
-      {item.Title}
+    <li>
+      {item.Title} ({item.Year})
       <button
         onClick={() => {
           removeNominee((movies) => {
@@ -17,7 +17,7 @@ const NominatedItem = ({ item, removeNominee }) => {
       >
         Remove
       </button>
-    </div>
+    </li>
   );
 };
 

@@ -7,27 +7,36 @@ import ls from "local-storage";
 
 function App() {
   let [search, setSearch] = useState([]);
+  let [searchTerm, setSearchTerm] = useState("");
   let [nominatedMovies, setNominee] = useState([]);
+
   useEffect(() => {
     ls.get("nominatedMovies") && setNominee(ls.get("nominatedMovies"));
   }, []);
   return (
     <div className="App">
-      {console.log(search, "search")}
-      <Search setSearch={setSearch} />
-      <br />
+      <div className="header">
+        <h1>The Shoppies </h1>
+      </div>
+      <div className="search">
+        <Search setSearch={setSearch} setSearchTerm={setSearchTerm} />
+        <br />
+      </div>
 
-      <SearchList
-        results={search.Search}
-        setNominee={setNominee}
-        nominatedMovies={nominatedMovies}
-      />
-      <br />
-      <NominatedList
-        nominatedMovies={nominatedMovies}
-        removeNominee={setNominee}
-      />
-      {console.log("ping", nominatedMovies)}
+      <div className="search-list">
+        <SearchList
+          searchTerm={searchTerm}
+          searchResults={search.Search}
+          setNominee={setNominee}
+          nominatedMovies={nominatedMovies}
+        />
+      </div>
+      <div className="nominated-list">
+        <NominatedList
+          nominatedMovies={nominatedMovies}
+          removeNominee={setNominee}
+        />
+      </div>
     </div>
   );
 }

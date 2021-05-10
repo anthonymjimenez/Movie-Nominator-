@@ -3,7 +3,7 @@ const SearchItem = ({ item, setNominee, nominatedMovies }) => {
   let ids = nominatedMovies.map(({ imdbID }) => imdbID);
 
   return (
-    <div>
+    <li>
       {item.Title} ({item.Year})
       <button
         disabled={(() => {
@@ -23,7 +23,7 @@ const SearchItem = ({ item, setNominee, nominatedMovies }) => {
       >
         Nominate
       </button>
-    </div>
+    </li>
   );
 };
 

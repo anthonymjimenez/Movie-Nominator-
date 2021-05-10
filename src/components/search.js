@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const Search = ({ setSearch }) => {
+const Search = ({ setSearch, setSearchTerm }) => {
   const updateSearch = async ({ target: { value } }) => {
     let response = await axios.get(
       `http://www.omdbapi.com/?s=${value}&apikey=15c8d29e&type=%22movie%22`
@@ -10,10 +10,13 @@ const Search = ({ setSearch }) => {
     } else {
       setSearch([]);
     }
+    setSearchTerm(value);
   };
   return (
     <>
-      <form>
+      <h4>Movie title</h4>
+      <form className="search-form">
+        <div className="search-icon">&#128269;</div>
         <input
           onChange={(e) => updateSearch(e)}
           type="search"

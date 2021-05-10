@@ -1,38 +1,69 @@
+html {
+  background-color: #d3d3d372;
+}
 .App {
+  text-align: start;
+  display: grid;
+  width: 90%;
+  grid-template-areas:
+    "header ."
+    "search search"
+    "searchList nominatedList";
+  grid-template-columns: 1fr 1fr;
+  margin: 5% auto 0% auto;
+}
+
+.header {
+  grid-area: header;
+  margin-left: 10px;
+}
+
+.search {
+  grid-area: search;
+}
+
+.search-list {
+  grid-area: searchList;
+}
+
+.nominated-list {
+  grid-area: nominatedList;
+}
+
+.search,
+.search-list,
+.nominated-list {
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+}
+
+.nominated-form {
+  color: #3d9837ee;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#nominated-input {
+  width: 80%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input::placeholder {
+  color: rgb(106, 92, 14);
+  font-style: italic;
+}
+input {
+  padding-left: 10px;
+  margin-left: -7px;
+  width: 100%;
+  height: 40px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.search-form {
+  display: inline-flex;
+  margin-top: 0%;
+  width: 100%;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-icon {
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
 }
