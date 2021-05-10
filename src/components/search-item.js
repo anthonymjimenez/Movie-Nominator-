@@ -8,11 +8,10 @@ const SearchItem = ({ item, setNominee, nominatedMovies }) => {
       <button
         id="button"
         disabled={(() => {
-          if (!ids.includes(item.imdbID)) {
-            return false;
-          } else if (ids.includes(item.imdbID)) {
+          if (ids.includes(item.imdbID)) {
             return true;
           }
+          return false;
         })()}
         onClick={() => {
           setNominee((movies) => {

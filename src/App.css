@@ -81,6 +81,5 @@ li {
 }
 .search-icon {
   display: block;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin: auto;
 }

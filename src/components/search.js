@@ -6,11 +6,10 @@ const Search = ({ setSearch, setSearchTerm }) => {
       let response = await axios.get(
         `https://www.omdbapi.com/?s=${value}&apikey=15c8d29e&type=%22movie%22`
       );
-      if (response.data.Response !== "False") {
-        setSearch(response.data);
-      } else {
-        setSearch([]);
-      }
+      response.data.Response !== "False"
+        ? setSearch(response.data)
+        : setSearch([]);
+
       setSearchTerm(value);
     } catch (error) {
       console.error(error);
