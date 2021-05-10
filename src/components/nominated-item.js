@@ -5,6 +5,7 @@ const NominatedItem = ({ item, removeNominee }) => {
     <li>
       {item.Title} ({item.Year})
       <button
+        id="button"
         onClick={() => {
           removeNominee((movies) => {
             let moviesFiltered = movies.filter(

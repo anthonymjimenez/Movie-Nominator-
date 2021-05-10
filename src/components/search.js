@@ -18,6 +18,7 @@ const Search = ({ setSearch, setSearchTerm }) => {
       <form className="search-form">
         <div className="search-icon">&#128269;</div>
         <input
+          id="search-input"
           onChange={(e) => updateSearch(e)}
           type="search"
           placeholder="Search for movies..."

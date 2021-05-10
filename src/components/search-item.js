@@ -6,6 +6,7 @@ const SearchItem = ({ item, setNominee, nominatedMovies }) => {
     <li>
       {item.Title} ({item.Year})
       <button
+        id="button"
         disabled={(() => {
           if (!ids.includes(item.imdbID)) {
             return false;
