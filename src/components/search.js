@@ -14,7 +14,7 @@ const Search = ({ setSearch, setSearchTerm }) => {
   };
   return (
     <>
-      <h4>Movie title</h4>
+      <h4 id="h4-movie-title">Movie title</h4>
       <form className="search-form">
         <div className="search-icon">&#128269;</div>
         <input

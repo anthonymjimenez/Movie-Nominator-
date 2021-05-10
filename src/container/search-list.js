@@ -8,7 +8,11 @@ const SearchList = ({
 }) => {
   return (
     <>
-      <h3>{`Results for "${searchTerm}"`}</h3>
+      <h3>
+        {searchTerm === ""
+          ? "Start searching..."
+          : `Results for "${searchTerm}"`}
+      </h3>
       <ul>
         {searchResults?.map((search) => (
           <SearchItem

@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <div className="header">
-        <h1>The Shoppies </h1>
+        <h1 id="h1-header">The Shoppies </h1>
       </div>
       <div className="search">
         <Search setSearch={setSearch} setSearchTerm={setSearchTerm} />
