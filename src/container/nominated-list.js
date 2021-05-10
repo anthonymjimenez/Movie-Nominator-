@@ -18,7 +18,7 @@ const NominatedList = ({ nominatedMovies, removeNominee }) => {
         {nominatedMovies.length === 5 ? (
           <> {categoryName} </>
         ) : (
-          <> Nomination </>
+          <> Nominations </>
         )}{" "}
       </h3>
       <ul className="nominated-movie-list">
