@@ -4,7 +4,6 @@ import Search from "./components/search";
 import NominatedList from "./container/nominated-list";
 import SearchList from "./container/search-list";
 import ls from "local-storage";
-
 function App() {
   let [search, setSearch] = useState([]);
   let [searchTerm, setSearchTerm] = useState("");
@@ -16,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <div className="header">
-        <h1 id="h1-header">The Shoppies </h1>
+        <h1 id="h1-header">Movie Nominator </h1>
       </div>
       <div className="search">
         <Search setSearch={setSearch} setSearchTerm={setSearchTerm} />
