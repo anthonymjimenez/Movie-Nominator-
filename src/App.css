@@ -61,7 +61,6 @@ input::placeholder {
 #search-input,
 #nominated-input {
   padding-left: 10px;
-  margin-left: -7px;
   height: 40px;
 }
 
@@ -82,4 +81,5 @@ li {
 .search-icon {
   display: block;
   margin: auto;
+  margin-right: 1%;
 }
